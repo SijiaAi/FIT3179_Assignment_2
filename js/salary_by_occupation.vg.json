@@ -1,0 +1,50 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "width": 500,
+    "height": 300,
+      "layer": [{
+        "data": {
+          "url": "https://raw.githubusercontent.com/SijiaAi/FIT3179_Assignment_2/main/data/hourly_earning_by_occupation.csv"
+        },
+        "layer": [{
+          "mark": "bar",
+          "encoding": {
+            "x": {"field": "occupations", "type": "nominal"},
+            "y": {"field": "Aug-21 ($)", "type": "quantitative","title":"Hourly Earning","scale":{"domain":[0,80]}}
+          }
+        }, {
+          "mark": "bar",
+          "transform": [
+            {"filter": "datum.Value >= 36"},
+            {"calculate": "36", "as": "baseline"}
+          ],
+          "encoding": {
+            "x": {"field": "occupations", "type": "nominal"},
+            "y": {"field": "baseline", "type": "quantitative", "title": "Hourly Earning"},
+            "y2": {"field": "Aug-21 ($)"},
+            "color": {"value": "#e45755"}
+          }
+        }
+      ]}, {
+        "data": {
+           "values": [{}]
+        },
+        "encoding": {
+          "y": {"datum": 36}
+        },
+        "layer": [{
+          "mark": "rule"
+        }, {
+          "mark": {
+            "type": "text",
+            "align": "right",
+            "baseline": "bottom",
+            "dx": -2,
+            "dy": -2,
+            "x": "width",
+            "text": "Average"
+          }
+        }]
+      }
+    ]
+  }

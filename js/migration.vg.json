@@ -1,0 +1,94 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+   "width": 650,
+    "height": 400,
+     "title": "International migrants in Countires",
+    "data": {"url": "https://raw.githubusercontent.com/SijiaAi/FIT3179_Assignment_2/main/data/migration.csv"},
+    "mark": "point",
+    "encoding": {
+      "x": {"field": "International migrants", "type": "quantitative", "axis": {"tickCount": 3},
+       "scale": {"type": "log", "domain": [1000, 50000000]}},
+      "y": {"field": "%population", "type": "quantitative","title":"% of Population","axis": {"tickCount": 3}}
+    },
+    "layer": [
+      {
+        "mark": "circle",
+        "encoding": {
+          "size": {
+            "field": "Country",
+            "type": "nominal",
+            "legend": null
+          },
+          "color": {
+            "field": "%population",
+            "type": "quantitative"
+          },
+          "opacity": {"value": 0.6},
+           "tooltip": [
+            {"field": "Country", "type": "nominal","title":"Country"},
+            {"field": "%population", "title":"% of Population","type": "quantitative", "format":",.2r",
+        "formatType": "number"},
+            {"field": "International migrants", "title":"International migrants","type": "quantitative", "format":",.2r",
+        "formatType": "number"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {"field": "Country", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "datum['Country'] == 'Australia' || datum['Country'] == 'United Kingdom' || datum['Country'] == 'Canada' ||  datum['Country'] == 'New Zealand' || datum['Country'] == 'Russia'",
+              "value": 1
+            },
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal","title":"Country"},
+            {"field": "%population", "title":"% of Population","type": "quantitative", "format":",.2r",
+        "formatType": "number"},
+            {"field": "International migrants", "title":"International migrants","type": "quantitative", "format":",.2r",
+        "formatType": "number"}
+          ]
+        }
+      },
+      {
+        "mark": {
+          "type": "text",
+          "align": "right",
+          "baseline": "middle",
+          "dx": -12,
+          "fontSize": 11.5,
+          "fontStyle": "italic"
+        },
+        "encoding": {
+          "text": {"field": "country", "type": "nominal"},
+          "color": {"value": "black"},
+          "opacity": {
+            "condition": {
+              "test": "datum['country'] == 'Australia' || datum['country'] == 'Colombia' || datum['country'] == 'Guatemala' ||  datum['country'] == 'United States'",
+              "value": 1
+            },
+            "value": 0
+          },
+          "tooltip": [
+            {"field": "Country", "type": "nominal","title":"Country"},
+            {"field": "%population", "title":"% of Population","type": "quantitative", "format":",.2r",
+        "formatType": "number"},
+            {"field": "International migrants", "title":"International migrants","type": "quantitative", "format":",.2r",
+        "formatType": "number"}
+          ]
+        }
+      }
+      ]
+  
+  }

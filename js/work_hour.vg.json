@@ -1,0 +1,26 @@
+
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 300,
+    "height": 300,
+  "data": {"url": "https://raw.githubusercontent.com/SijiaAi/FIT3179_Assignment_2/main/data/working_hour.csv"},
+  "mark": {
+    "type": "line",
+    "point": true
+    
+  },
+  "encoding": {
+    "x": {"timeUnit": "year", "field": "TIME","title":"Year"},
+    "y": {"aggregate":"mean", "field": "Value", "type": "quantitative",
+    "title":"Average Working Hours",
+            "scale":{"domain":[1450,2200]}},
+    "color": {"field": "LOCATION", "type": "nominal"},
+
+    "tooltip":[
+        {"field":"LOCATION","type":"nominal","title":"Country Code"},
+        {"field":"TIME","timeUnit":"year","title":"Year"},
+        {"field":"Value","type":"quantitative","title":"Average Working Hours(h)","format":",.2f"}]
+    
+  }
+  
+}
