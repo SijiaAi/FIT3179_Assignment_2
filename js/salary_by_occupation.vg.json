@@ -1,0 +1,24 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 400,
+  "height": 400,
+    "background":null,
+    "layer": [{
+      "data": {
+        "url": "https://raw.githubusercontent.com/SijiaAi/FIT3179_Assignment_2/main/data/hourly_earning_by_occupation.csv"
+      },
+      "layer": [{
+        "mark": "bar",
+        "encoding": {
+          "y": {"field": "occupations", "type": "nominal","sort":"-x"},
+          "x": {"field": "Aug-21 ($)", "type": "quantitative","title":"Hourly Earning","scale":{"domain":[0,55]}}
+        ,
+        "tooltip": [
+          {"field": "occupations", "type": "nominal", "title": "Occupation"},
+          {"field": "Aug-21 ($)", "type": "quantitative","title":"Hourly Earning(AU$)"}
+        ]}
+     
+      }
+    ]}
+  ]
+}
