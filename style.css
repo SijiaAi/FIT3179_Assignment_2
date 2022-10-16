@@ -1,0 +1,36 @@
+.body{
+    background-color: bisque;
+}
+.grey-layout h2{
+    justify-content: center;
+    text-align: center;
+}
+.container{
+    background-color: rgba(197, 197, 197, 0.3);
+    width: 70%;
+   
+}
+.introduction{
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.chartContent{
+    margin-top: 5%; 
+    background-color: rgba(223, 224, 224, 0.5); justify-content: center; 
+    margin-left: 5%;
+    margin-right: 5%;
+    border-radius: 20px;
+}
+
+
+@media only screen and (max-width: 1820px) {
+  
+
+    #salary_by_occupation canvas{
+        width: 500px !important; 
+    }
+    #migration canvas{
+        width: 500px !important; 
+    }
+  } 
